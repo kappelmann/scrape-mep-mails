@@ -29,7 +29,7 @@ def scrape_mep_from_html(mep_id: int, html: str) -> MepData:
     mep_soup = BeautifulSoup(html, 'html.parser')
 
     name = next(mep_soup.find(class_='sln-member-name').strings).strip()
-    european_fraction = mep_soup.find(class_='erpl_title-h3 mt-1').string
+    european_fraction = mep_soup.find(class_='sln-political-group-name').string
 
     national_info_tag = mep_soup.find(class_='erpl_title-h3 mt-1 mb-1')
     national_info = national_info_tag.string.split(' - ')
